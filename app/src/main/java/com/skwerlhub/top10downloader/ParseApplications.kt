@@ -21,12 +21,12 @@ class ParseApplications {
             val factory = XmlPullParserFactory.newInstance()
             factory.isNamespaceAware = true
             val xpp = factory.newPullParser()
+            xpp.setInput(xmlData.reader())
             var eventType = xpp.eventType
             var currentRecord = FeedEntry()
 
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                // TODO: should use safe-call operator ?
-                val tagName = xpp.name.toLowerCase()
+                val tagName = xpp.name?.toLowerCase()
 
                 when (eventType) {
                     XmlPullParser.START_TAG -> {
