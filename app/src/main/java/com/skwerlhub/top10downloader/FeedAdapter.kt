@@ -37,10 +37,6 @@ class FeedAdapter(
             viewHolder = view.tag as ViewHolder
         }
 
-//        val tvName: TextView = view.findViewById(R.id.tvName)
-//        val tvArtist: TextView = view.findViewById(R.id.tvArtist)
-//        val tvSummary: TextView = view.findViewById(R.id.tvSummary)
-
         val currentApp = applications[position]
 
         viewHolder.tvName.text = currentApp.name
