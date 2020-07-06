@@ -43,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d(TAG, "onCreate called")
+
+        if (savedInstanceState != null) {
+            feedUrl = savedInstanceState.getString(STATE_URL)!!
+            feedLimit = savedInstanceState.getInt(STATE_LIMIT)
+        }
+
         downloadUrl(feedUrl.format(feedLimit))
 
         Log.d(TAG, "onCreate: done")
@@ -103,6 +110,12 @@ class MainActivity : AppCompatActivity() {
         downloadUrl(feedUrl.format(feedLimit))
 
         return true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_URL, feedUrl)
+        outState.putInt(STATE_LIMIT, feedLimit)
     }
 
     override fun onDestroy() {
