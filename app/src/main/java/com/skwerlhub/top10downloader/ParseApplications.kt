@@ -3,7 +3,6 @@ package com.skwerlhub.top10downloader
 import android.util.Log
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
-import java.lang.Exception
 
 class ParseApplications {
     private val TAG = "ParseApplications"
@@ -63,10 +62,10 @@ class ParseApplications {
                 eventType = xpp.next()
             }
 
-            for (app in applications) {
-                Log.d(TAG, "********************")
-                Log.d(TAG, app.toString())
-            }
+//            for (app in applications) {
+//                Log.d(TAG, "********************")
+//                Log.d(TAG, app.toString())
+//            }
         } catch (e: Exception) {
             e.printStackTrace()
             status = false
